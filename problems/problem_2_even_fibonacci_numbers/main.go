@@ -5,6 +5,49 @@
 
 package main
 
-func main() {
+import "fmt"
 
+type result []int64
+
+func main() {
+	fibonacciSequence := generateFibonacciSeqence()
+	result := fibonacciSequence.sumOfEvenNumbers()
+
+	fmt.Println("RESULT : ", fibonacciSequence)
+	fmt.Println("RESULT : ", result)
+}
+
+func generateFibonacciSeqence() result {
+	var maxNumber = 1500
+	sequence := []int64{1, 2, 3}
+
+	for i := 4; i <= maxNumber; i++ {
+		x := i - 3
+		y := i - 2
+
+		number1 := sequence[x]
+		number2 := sequence[y]
+
+		sum := number1 + number2
+
+		if sum > 4000000 {
+			return sequence
+		}
+
+		sequence = append(sequence, int64(sum))
+	}
+
+	return sequence
+}
+
+func (input result) sumOfEvenNumbers() int64 {
+	var sum int64
+
+	for _, number := range input {
+		if number%2 == 0 {
+			sum = sum + number
+		}
+	}
+
+	return sum
 }
