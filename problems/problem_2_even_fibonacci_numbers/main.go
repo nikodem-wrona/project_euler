@@ -10,14 +10,14 @@ import "fmt"
 type result []int64
 
 func main() {
-	fibonacciSequence := generateFibonacciSeqence()
+	fibonacciSequence := generateFibonacciSequence()
 	result := fibonacciSequence.sumOfEvenNumbers()
 
 	fmt.Println("RESULT : ", fibonacciSequence)
 	fmt.Println("RESULT : ", result)
 }
 
-func generateFibonacciSeqence() result {
+func generateFibonacciSequence() result {
 	var maxNumber = 1500
 	sequence := []int64{1, 2, 3}
 
